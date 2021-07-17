@@ -5,11 +5,12 @@ function sumStrings(a,b) {
     let maxLength = Math.max(aSplit.length, bSplit.length)
     let result = []
     let addDec = 0
-    for (let i =0; i < maxLength; i++) {
+    for (let i =0; i < maxLength - 1; i++) {
       let sum = (+aSplit[i] || 0) + (+bSplit[i] || 0) + addDec
       addDec = sum > 9 ? 1 : 0
       result.push(sum - (sum > 9 ? 10 : 0) )
-    }    
+    }
+    result.push((+aSplit[maxLength - 1] || 0) + (+bSplit[maxLength - 1] || 0) + addDec)
     return result.reverse().join('')
   } else {
     return +a + +b + ''
